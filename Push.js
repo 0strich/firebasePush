@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   TextInput,
   StyleSheet,
@@ -8,6 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import NotifService from './NotifService';
+import messaging from '@react-native-firebase/messaging';
 
 const Push = props => {
   const [registerToken, setRegisterToken] = useState(null);
@@ -27,6 +28,16 @@ const Push = props => {
   };
 
   const notif = new NotifService(onRegister, onNotif);
+
+  const listeningNotification = async () => {
+    await messaging().onMessage(message => {
+      console.notification('notification==> ', message.notification);
+    });
+  };
+
+  useEffect(() => {
+    listeningNotification();
+  }, []);
 
   return (
     <View style={styles.container}>
