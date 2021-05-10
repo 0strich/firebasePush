@@ -31,7 +31,8 @@ const Push = props => {
 
   const listeningNotification = async () => {
     await messaging().onMessage(message => {
-      console.notification('notification==> ', message.notification);
+      const {title, body} = message.notification;
+      notif.localNotif(title, body);
     });
   };
 
