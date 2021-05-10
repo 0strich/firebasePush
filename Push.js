@@ -51,18 +51,22 @@ const Push = props => {
         onPress={() => notif.localNotif('sample.mp3')}>
         <Text>Local Notification with sound (now)</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => scheduleNotif()}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => notif.scheduleNotif()}>
         <Text>Schedule Notification in 30s</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => scheduleNotif('sample.mp3')}>
+        onPress={() => notif.scheduleNotif('sample.mp3')}>
         <Text>Schedule Notification with sound in 30s</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => cancelNotif()}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => notif.cancelNotif()}>
         <Text>Cancel last notification (if any)</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => cancelAll()}>
+      <TouchableOpacity style={styles.button} onPress={() => notif.cancelAll()}>
         <Text>Cancel all notifications</Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -72,36 +76,36 @@ const Push = props => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => requestPermissions()}>
+        onPress={() => notif.requestPermissions()}>
         <Text>Request Permissions</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => abandonPermissions()}>
+        onPress={() => notif.abandonPermissions()}>
         <Text>Abandon Permissions</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          getScheduledLocalNotifications(notifs => console.log(notifs));
+          notif.etScheduledLocalNotifications(notifs => console.log(notifs));
         }}>
         <Text>Console.Log Scheduled Local Notifications</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         onPress={() =>
-          getDeliveredNotifications(notifs => console.log(notifs))
+          notif.getDeliveredNotifications(notifs => console.log(notifs))
         }>
         <Text>Console.Log Delivered Notifications</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => createOrUpdateChannel()}>
+        onPress={() => notif.createOrUpdateChannel()}>
         <Text>Create or update a channel</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => popInitialNotification()}>
+        onPress={() => notif.popInitialNotification()}>
         <Text>popInitialNotification</Text>
       </TouchableOpacity>
 
