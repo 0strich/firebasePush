@@ -8,11 +8,12 @@
 
 import React from 'react';
 import {Text, View} from 'react-native';
+import Push from './Push';
 
 const App = () => {
   return (
     <View style={{flex: 1}}>
-      <Text>init</Text>
+      <Push />
     </View>
   );
 };
